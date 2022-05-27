@@ -13,6 +13,6 @@ Install the requirements using `pip install -r requirements.txt`<br>
 Run using streamlit  `streamlit run streamlit_app.py`
 
 ---
-**References**
-[NASA APIs](https://api.nasa.gov/)
+**References**<br>
+[NASA APIs](https://api.nasa.gov/)<br>
 [Streamlit Documentation](https://docs.streamlit.io/)
