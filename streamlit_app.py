@@ -30,6 +30,7 @@ elif date < first_apod_date:
 else:
    hdurl = json_data["hdurl"]
    title = json_data["title"]
+   explanation = json_data["explanation"]
    
    # Showing the information
    st.image(hdurl)
