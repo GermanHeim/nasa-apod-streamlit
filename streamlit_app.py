@@ -10,7 +10,7 @@ st.title("🪐 NASA APOD")
 st.write("This app shows you the Astronomy Picture of the Day (APOD) from NASA.")
 
 # Getting data from the NASA API
-api_key = st.secrets[api_key]
+api_key = st.secrets["api_key"]
 date = st.date_input('Select the day of the image')
 api_url = "https://api.nasa.gov/planetary/apod?date={}&api_key={}}".format(date, api_key)
 response = requests.get(api_url)
