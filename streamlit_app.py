@@ -20,8 +20,12 @@ json_data = response.json()
 
 # Storing hdurl and title in variables from json_data
 today = date.today()
+first_apod_str = "16 June, 1995"
+first_apod_date = datetime.date(datetime.strptime(first_apod_str, "%d %B, %Y"))
 if date > today:
    st.error("You can't select a future date")
+elif date < first_apod_date:
+   st.error("The first APOD was released in 1995-06-16, please select a date after that one.")
 else:
    hdurl = json_data["hdurl"]
    title = json_data["title"]
