@@ -1,9 +1,10 @@
-# NASA APOD in Streamlit
+# NASA APOD in Streamlit ☄
 ![Streamlit x NASA APOD](https://i.imgur.com/GiPHrVq.png)
 
 NASA APOD in Streamlit is a webapp that uses NASA's APOD (Astronomy Picture of the Day) API and Streamlit to show the APOD of a selected date with a friendly UI!
 
-Run the app in [Streamlit Cloud!](https://share.streamlit.io/germanheim/nasa-apod-streamlit/main)
+Run the app in Streamlit Cloud
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/germanheim/nasa-apod-streamlit/main)
 
 ---
 ### Steps to run locally
