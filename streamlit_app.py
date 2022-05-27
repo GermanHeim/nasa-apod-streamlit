@@ -28,6 +28,8 @@ if date > today:
 elif date < first_apod_date:
    st.error("The first APOD was released in 1995-06-16, please select a date after that one.")
 else:
+   media_type = json_data["media_type"]
+   if media_type == "image":
    hdurl = json_data["hdurl"]
    title = json_data["title"]
    explanation = json_data["explanation"]
@@ -51,3 +53,5 @@ else:
            )
      if btn:
         st.success("Image downloaded")
+    else:
+      st.error("There isn't an available picture for that date, please select another date.")
