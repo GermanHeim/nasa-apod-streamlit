@@ -5,7 +5,7 @@ from datetime import date
 import urllib
 from datetime import datetime
 
-# Setting up streamlit
+# Setting up Streamlit
 st.set_page_config(layout="centered", page_icon="☄", page_title="NASA APOD")
 st.title("🪐 NASA APOD")
 st.write("This app shows you the Astronomy Picture of the Day (APOD) from NASA.")
@@ -30,28 +30,28 @@ elif date < first_apod_date:
 else:
    media_type = json_data["media_type"]
    if media_type == "image":
-   hdurl = json_data["hdurl"]
-   title = json_data["title"]
-   explanation = json_data["explanation"]
-   
-   # Showing the information
-   st.image(hdurl)
-   st.header(title + " - " + str(date))
-   st.write(explanation)
-   st.write("Image by NASA https://www.nasa.gov/ © 2022 NASA All rights reserved")
-   req = urllib.request.build_opener()
-   req.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64)')]
-   file_name = "APOD.jpg"
-   urllib.request.install_opener(req)
-   urllib.request.urlretrieve(hdurl, file_name)
-   with open("APOD.jpg", "rb") as file:
-     btn = st.download_button(
-             label="Download image",
-             data=file,
-             file_name="APOD.jpg",
-             mime="image/jpg"
-           )
-     if btn:
-        st.success("Image downloaded")
-    else:
+      hdurl = json_data["hdurl"]
+      title = json_data["title"]
+      explanation = json_data["explanation"]
+      
+      # Showing the information
+      st.image(hdurl)
+      st.header(title + " - " + str(date))
+      st.write(explanation)
+      st.write("Image by NASA https://www.nasa.gov/ © 2022 NASA All rights reserved")
+      req = urllib.request.build_opener()
+      req.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64)')]
+      file_name = "APOD.jpg"
+      urllib.request.install_opener(req)
+      urllib.request.urlretrieve(hdurl, file_name)
+      with open("APOD.jpg", "rb") as file:
+         btn = st.download_button(
+            label="Download image",
+            data=file,
+            file_name="APOD.jpg",
+            mime="image/jpg"
+            )
+            if btn:
+               st.success("Image downloaded")
+   else:
       st.error("There isn't an available picture for that date, please select another date.")
