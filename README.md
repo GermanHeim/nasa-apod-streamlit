@@ -7,9 +7,9 @@ Run the app in [Streamlit Cloud!](https://share.streamlit.io/germanheim/nasa-apo
 
 ---
 ### Steps to run locally
-Use `git clone https://github.com/GermanHeim/nasa-apod-streamlit`
-Make sure to add your API Key in the `api_key` variable or use `DEMO_KEY`
-Install the requirements using `pip install -r requirements.txt`
+Use `git clone https://github.com/GermanHeim/nasa-apod-streamlit`<br>
+Make sure to add your API Key in the `api_key` variable or use `DEMO_KEY`<br>
+Install the requirements using `pip install -r requirements.txt`<br>
 Run using streamlit  `streamlit run streamlit_app.py`
 
 ---
