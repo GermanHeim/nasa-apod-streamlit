@@ -3,6 +3,7 @@ import streamlit as st
 import requests
 from datetime import date
 import urllib
+from datetime import datetime
 
 # Setting up streamlit
 st.set_page_config(layout="centered", page_icon="☄", page_title="NASA APOD")
