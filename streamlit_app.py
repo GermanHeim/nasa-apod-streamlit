@@ -51,7 +51,7 @@ else:
             file_name="APOD.jpg",
             mime="image/jpg"
             )
-            if btn:
-               st.success("Image downloaded")
+      if btn:
+         st.success("Image downloaded")
    else:
       st.error("There isn't an available picture for that date, please select another date.")
