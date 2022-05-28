@@ -19,12 +19,12 @@ response = requests.get(api_url)
 # Get json info from the api_url
 json_data = response.json()
 
-# Storing hdurl and title in variables from json_data
+# Storing important dates
 today = date.today()
 first_apod_str = "16 June, 1995"
 first_apod_date = datetime.date(datetime.strptime(first_apod_str, "%d %B, %Y"))
 
-# Setting if statement to check if the date is valid and the status code is 200
+# Setting if statements to check if the date is valid and the status code is 200
 if response.status_code == 200:
    if date > today:
       st.error("You can't select a future date")
@@ -33,6 +33,7 @@ if response.status_code == 200:
    else:
       media_type = json_data["media_type"]
       if media_type == "image":
+         # Storing hdurl, title and explanation in variables from json_data
          hdurl = json_data["hdurl"]
          title = json_data["title"]
          explanation = json_data["explanation"]
