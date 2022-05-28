@@ -62,5 +62,3 @@ if response.status_code == 200:
                st.success("Image downloaded")
             else:
                st.error("There isn't an available picture for that date, please select another date.")
-else:
-   st.error("There was an error, please try using another date.")
