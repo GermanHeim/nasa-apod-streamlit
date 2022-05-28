@@ -23,35 +23,38 @@ json_data = response.json()
 today = date.today()
 first_apod_str = "16 June, 1995"
 first_apod_date = datetime.date(datetime.strptime(first_apod_str, "%d %B, %Y"))
-if date > today:
-   st.error("You can't select a future date")
-elif date < first_apod_date:
-   st.error("The first APOD was released in 1995-06-16, please select a date after that one.")
-else:
-   media_type = json_data["media_type"]
-   if media_type == "image":
-      hdurl = json_data["hdurl"]
-      title = json_data["title"]
-      explanation = json_data["explanation"]
-      
-      # Showing the information
-      st.image(hdurl)
-      st.header(title + " - " + str(date))
-      st.write(explanation)
-      st.write("Image by NASA https://www.nasa.gov/ © 2022 NASA All rights reserved")
-      req = urllib.request.build_opener()
-      req.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64)')]
-      file_name = "APOD.jpg"
-      urllib.request.install_opener(req)
-      urllib.request.urlretrieve(hdurl, file_name)
-      with open("APOD.jpg", "rb") as file:
-         btn = st.download_button(
-            label="Download image",
-            data=file,
-            file_name="APOD.jpg",
-            mime="image/jpg"
-            )
-            if btn:
-               st.success("Image downloaded")
+if response.status_code == 200:
+   if date > today:
+      st.error("You can't select a future date")
+   elif date < first_apod_date:
+      st.error("The first APOD was released in 1995-06-16, please select a date after that one.")
    else:
-      st.error("There isn't an available picture for that date, please select another date.")
+      media_type = json_data["media_type"]
+      if media_type == "image":
+         hdurl = json_data["hdurl"]
+         title = json_data["title"]
+         explanation = json_data["explanation"]
+         
+         # Showing the information
+         st.image(hdurl)
+         st.header(title + " - " + str(date))
+         st.write(explanation)
+         st.write("Image by NASA https://www.nasa.gov/ © 2022 NASA All rights reserved")
+         req = urllib.request.build_opener()
+         req.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64)')]
+         file_name = "APOD.jpg"
+         urllib.request.install_opener(req)
+         urllib.request.urlretrieve(hdurl, file_name)
+         with open("APOD.jpg", "rb") as file:
+            btn = st.download_button(
+               label="Download image",
+               data=file,
+               file_name="APOD.jpg",
+               mime="image/jpg"
+               )
+         if btn:
+            st.success("Image downloaded")
+         else:
+            st.error("There isn't an available picture for that date, please select another date.")
+else:
+   st.error("There was an error, please try using another date.")
